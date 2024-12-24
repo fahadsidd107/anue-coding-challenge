@@ -14,14 +14,16 @@ const Navbar: React.FC = () => {
   }, [fetchTasks]);
 
   return (
-    <nav className="flex justify-between items-center p-4 bg-opacity-70 backdrop-blur-lg">
+    <nav  className={`flex justify-between items-center p-4 bg-opacity-70 backdrop-blur-lg ${
+      isDarkMode ? "bg-gray-800 text-white" : "bg-gray-200 text-black"
+    }`}>
       {/* Left: Task count */}
       <div className="text-sm font-medium">
         Number of Tasks: <span className="font-bold">{tasks.length || 0}</span>
       </div>
 
       {/* Center: Title */}
-      <h1 className="text-xl font-semibold">Your Todos</h1>
+      <h1 className="text-xl font-semibold">Your Todos {isDarkMode ? "yes" : "no"}</h1>
 
       {/* Right: Dark mode toggle button */}
       <DarkModeToggleButton
