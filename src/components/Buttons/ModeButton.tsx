@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+// DarkModeToggleButton.tsx
+import React from "react";
+import DarkModeToggle from "react-dark-mode-toggle";
 
-const ModeButton: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState(false);
+interface DarkModeToggleButtonProps {
+  isDarkMode: boolean;
+  onToggle: (value: boolean) => void;
+}
 
-  const toggleMode = () => {
-    setIsDarkMode((prev) => !prev);
-    document.documentElement.classList.toggle('dark');
-  };
-
+const DarkModeToggleButton: React.FC<DarkModeToggleButtonProps> = ({
+  isDarkMode,
+  onToggle,
+}) => {
   return (
-    <button
-      onClick={toggleMode}
-      className="px-3 py-2 bg-gray-600 text-white dark:bg-gray-300 dark:text-black rounded-md transition-all"
-    >
-      {isDarkMode ? 'Light Mode' : 'Dark Mode'}
-    </button>
+    <DarkModeToggle
+      onChange={onToggle}
+      checked={isDarkMode}
+      size={70} // Adjust size as needed
+    />
   );
 };
 
-export default ModeButton;
+export default DarkModeToggleButton;

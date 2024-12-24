@@ -11,7 +11,7 @@ const Page: React.FC = () => {
   const handleToggle = () => setIsDarkMode((prev) => !prev);
 
   return (
-    <>
+    <div>
       {isDarkMode ? (
         <DarkBackground>
           <Navbar onToggleDarkMode={handleToggle} isDarkMode={isDarkMode} />
@@ -29,7 +29,7 @@ const Page: React.FC = () => {
           </div>
         </LightBackground>
       )}
-    </>
+    </div>
   );
 };
 
