@@ -1,25 +1,23 @@
 // Navbar.tsx
-import React, { useEffect, useState } from "react";
-import DarkModeToggleButton from "../Buttons/ModeButton"; // Adjust path as needed
+import React, { useEffect } from "react";
+import DarkModeToggleButton from "../Buttons/ModeButton"; 
 import { useTaskStore } from "@/hooks/useTaskStore";
+import useDarkModeStore from "../../hooks/useDarkModeStore";
 
-interface NavbarProps {
-  onToggleDarkMode: (value: boolean) => void;
-  isDarkMode: boolean;
-}
-const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
+const Navbar: React.FC = () => {
+  const { tasks, fetchTasks } = useTaskStore();
+  const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
 
-    const { tasks, fetchTasks } = useTaskStore();
+  useEffect(() => {
+    // Fetch tasks when the page loads
+    fetchTasks().catch((err) => console.error("Error fetching tasks:", err));
+  }, [fetchTasks]);
 
-    useEffect(() => {
-      // Fetch tasks when the page loads
-      fetchTasks().catch((err) => console.error("Error fetching tasks:", err));
-    }, [fetchTasks]);
   return (
     <nav className="flex justify-between items-center p-4 bg-opacity-70 backdrop-blur-lg">
       {/* Left: Task count */}
       <div className="text-sm font-medium">
-        Number of Tasks: <span className="font-bold">{tasks.length || 0}</span> {/* Replace 5 with actual task count */}
+        Number of Tasks: <span className="font-bold">{tasks.length || 0}</span>
       </div>
 
       {/* Center: Title */}
@@ -28,7 +26,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDarkMode, isDarkMode }) => {
       {/* Right: Dark mode toggle button */}
       <DarkModeToggleButton
         isDarkMode={isDarkMode}
-        onToggle={onToggleDarkMode}
+        onToggle={toggleDarkMode}
       />
     </nav>
   );
