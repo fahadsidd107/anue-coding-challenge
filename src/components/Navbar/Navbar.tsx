@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Center: Title */}
-      <h1 className="text-xl font-semibold">Your Todos {isDarkMode ? "yes" : "no"}</h1>
+      <h1 className="text-xl font-semibold">Your Todos</h1>
 
       {/* Right: Dark mode toggle button */}
       <DarkModeToggleButton

@@ -9,7 +9,8 @@ interface TaskState {
   editTask: (id: number, updatedTask: Partial<Task>) => Promise<void>;
   deleteTask: (id: number) => Promise<void>;
   deleteAllTasks: () => Promise<void>;
-  getOneTask: (id: number) => Promise<void>; 
+  getOneTask: (id: number) => Promise<void>;
+  completeTask : (id:number) => Promise<void>;
 }
 
 export const useTaskStore = create<TaskState>((set) => ({
@@ -32,6 +33,22 @@ export const useTaskStore = create<TaskState>((set) => ({
         task.id === id ? { ...task, ...updatedTask } : task
       ),
     }));
+  },
+  completeTask: async (id) => {
+    set((state) => {
+      const updatedTask = state.tasks.find((task)=> task.id === id)
+      if(updatedTask){
+        updatedTask.isCompleted = !updatedTask.isCompleted 
+        editTask(id,updatedTask)
+        return {
+          ...state,
+           tasks: state.tasks.map((task) =>
+        task.id === id ? { ...task, ...updatedTask } : task
+      )
+        }
+      }
+      return state
+    })
   },
 
   deleteTask: async (id) => {
