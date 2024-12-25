@@ -47,12 +47,10 @@ const TaskListItem: React.FC<Props> = ({
             />
           )}
           {/* Edit Button */}
-          {!isCompleted && (
-            <Button
-              onClickHandler={() => completeTask(id)}
-              icon={<FilePenLine size={18} />}
-            />
-          )}
+          {!isCompleted && <Button icon={<FilePenLine size={18} onClick={() => {
+            setIsEditModalOpen(true);
+            setTask(task);
+          }} />} />}
           {/* Delete Button */}
           <Button
             onClickHandler={() => {
