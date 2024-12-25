@@ -13,7 +13,7 @@ export const useDarkModeStore = create<DarkModeState>()(
       toggleDarkMode: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
     }),
     {
-      name: "Dark Mode Store" // Store name in DevTools
+      name: "Dark Mode Store"
     }
   )
 );

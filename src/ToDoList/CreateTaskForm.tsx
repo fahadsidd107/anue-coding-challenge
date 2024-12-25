@@ -21,7 +21,7 @@ const CreateTaskForm = () => {
     setDescription("");
   };
   return (
-    <div className={`mt-4 flex w-[40vw] gap-4 bg-slate-200 justify-start rounded-3xl p-4 border-solid border-2 ${
+    <div className={`mt-4 flex w-full gap-4 bg-slate-200 justify-start rounded-3xl p-4 border-solid border-2 ${
       isDarkMode ? "shadow-customDark bg-gray-700  " : "shadow-customLight bg-green-300"
     }`}>
       <Input

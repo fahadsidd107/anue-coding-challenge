@@ -7,22 +7,37 @@ import { Trash2 } from 'lucide-react';
 import { FilePenLine } from 'lucide-react';
 import Button from "@/components/Buttons/Button";
 
-const TaskListItem: React.FC<{ task: Task }> = ({ task }) => {
+interface Props {
+  task: Task;
+  setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setIsDeleteModalOpen: React.Dispatch<React.SetStateAction<boolean>>
+  setTask: React.Dispatch<React.SetStateAction<Task | null>>
+}
+
+const TaskListItem: React.FC<Props> = ({ task, setTask, setIsEditModalOpen,setIsDeleteModalOpen }) => {
   const { title, description, id, isCompleted } = task;
   const completeTask = useTaskStore((state) => state.completeTask);
    const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
   return (
-    <div className={`flex w-[40vw] gap-4  ${
+    <div className={`flex w-full gap-4  ${
       isDarkMode ? " bg-gray-600  " : " bg-green-200"
-    } justify-start rounded-3xl p-4 items-center`}>
+    } justify-between rounded-3xl p-4 items-center`}>
+      <div className="flex justify-start gap-4">
       <CheckBox handleCheck={completeTask} id={id} checked={isCompleted} />
       <div className="flex flex-col">
         <p className="text-[16px]">{title}</p>
         <p className="text-[12px]">{description}</p>
       </div>
+      </div>
       <div className="flex gap-2">
-      <Button    icon={<FilePenLine size={18} />} />
-      <Button   icon={<Trash2 size={18} />} />
+       {!isCompleted && <Button    icon={<FilePenLine size={18} onClick={()=>{
+        setIsEditModalOpen(true);
+        setTask(task);
+       }} />} />}
+      <Button   icon={<Trash2 size={18} onClick={()=>{
+        setIsDeleteModalOpen(true);
+        setTask(task);
+       }} />} />
       </div>
     </div>
   );
