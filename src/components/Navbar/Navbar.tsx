@@ -1,8 +1,14 @@
-// Navbar.tsx
+"use client"
+
 import React, { useEffect } from "react";
-import DarkModeToggleButton from "../Buttons/ModeButton"; 
 import useDarkModeStore from "../../hooks/useDarkModeStore";
 import { useTaskStore } from "../../hooks/useTaskStore";
+import dynamic from "next/dynamic";
+
+const DarkModeToggleButton = dynamic(
+  () => import('../Buttons/ModeButton'),
+  { ssr: false }
+);
 
 const Navbar: React.FC = () => {
   const { tasks, fetchTasks } = useTaskStore();

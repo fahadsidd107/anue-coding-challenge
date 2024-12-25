@@ -1,8 +1,8 @@
 import { Earth, Jupiter, Mars, Mercury, Neptune, Saturn,Cloud1, Cloud2, Cloud3, Cloud4, Cloud5, Cloud6 } from "./images";
 
-export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://anue-coding-challenge-backend.onrender.com";
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
 
-// Layout configuration for planets and clouds
+
 export const planets = [
     // Left side planets
     { src: Earth, alt: "Planet 1", dataValue: "-15", style: { top: "20%", left: "5%" } },

@@ -1,4 +1,5 @@
-// DarkModeToggleButton.tsx
+"use client"
+
 import React from "react";
 import DarkModeToggle from "react-dark-mode-toggle";
 
