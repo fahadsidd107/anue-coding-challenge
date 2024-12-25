@@ -1,14 +1,13 @@
-import { useTaskStore } from '@/hooks/useTaskStore';
-import { Task } from '@/types/task';
-import { deleteTask } from '@/utils/api';
 import React, { useState } from 'react';
+import { useTaskStore } from '../hooks/useTaskStore';
+import { Task } from '../types/task';
 
 interface Props {
     setIsDeleteModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
     task: Task;
 }
 const DeletingModal: React.FC<Props> = ({ setIsDeleteModalOpen, task }) => {
-    const [title, setTitle] = useState(task.title);
+    const [title] = useState(task.title);
     const deleteTask = useTaskStore((state) => state.deleteTask);
 
     const handleDeleteTask = async (id: number) => {

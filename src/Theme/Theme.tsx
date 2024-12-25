@@ -3,7 +3,7 @@
 import React from "react";
 import DarkModeParallax from "../components/Parallax/DarkModeParallax";
 import LightModeParallax from "../components/Parallax/LightModeParallax";
-import useDarkModeStore from "@/hooks/useDarkModeStore";
+import useDarkModeStore from "../hooks/useDarkModeStore";
 
 const Theme: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const isDarkMode = useDarkModeStore((state) => state.isDarkMode);

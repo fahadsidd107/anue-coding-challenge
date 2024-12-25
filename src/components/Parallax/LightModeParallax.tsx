@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Clouds from "../ImageAnimations/Clouds";
-import { clouds } from "@/utils/constants";
+import { clouds } from "../../utils/constants";
 
 const LightModeParallax: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);

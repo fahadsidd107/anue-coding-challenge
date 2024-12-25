@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import Planets from "../ImageAnimations/Planets";
-import { planets } from "@/utils/constants";
+import { planets } from "../../utils/constants";
 
 const DarkModeParallax: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);

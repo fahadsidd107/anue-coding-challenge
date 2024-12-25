@@ -1,5 +1,4 @@
-// components/ToastContainerWrapper.js
-import React from 'react';
+'use client';
 import { ToastContainer } from 'react-toastify';
 
 const ToastContainerWrapper = () => (

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import TaskListItem from "./TaskListItem";
-import { useTaskStore } from "@/hooks/useTaskStore";
 import CreateTaskForm from "./CreateTaskForm";
 import EditingModal from "./EditingModal";
-import { Task } from "@/types/task";
-import SkeletonComponent from "@/components/Skeleton/Skeleton";
 import DeletingModal from "./DeleteModal";
+import { useTaskStore } from "../hooks/useTaskStore";
+import { Task } from "../types/task";
+import SkeletonComponent from "../components/Skeleton/Skeleton";
 
 const TaskListContainer = () => {
   const tasks = useTaskStore((state) => state.tasks);

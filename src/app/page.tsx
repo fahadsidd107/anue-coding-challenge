@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useEffect } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import React from "react";
+import dynamic from "next/dynamic";
+
 import Theme from "../Theme/Theme";
 import TaskListContainer from "../ToDoList/TaskListContainer";
-import ToastContainerWrapper from "@/components/Toast/ToastContainerWrapper";
+import ToastContainerWrapper from "../components/Toast/ToastContainerWrapper";
+
+const Navbar = dynamic(
+  () => import('../components/Navbar/Navbar'),
+  { ssr: false }
+);
 
 const Page: React.FC = () => {
-  useEffect(() => {}, []);
   return (
     <Theme>
       <Navbar />

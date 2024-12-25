@@ -1,8 +1,7 @@
-import { useTaskStore } from '@/hooks/useTaskStore';
-import Input from '@/Inputs/Input';
-import { Task } from '@/types/task';
 import React, { useState } from 'react';
-import { toast } from 'react-toastify';
+import { Task } from '../types/task';
+import { useTaskStore } from '../hooks/useTaskStore';
+import Input from '../Inputs/Input';
 
 interface Props {
     setIsEditModalOpen: React.Dispatch<React.SetStateAction<boolean>>;

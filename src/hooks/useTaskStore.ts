@@ -8,8 +8,7 @@ import {
   getOneTask,
 } from "../utils/api";
 import { Task } from "../types/task";
-import { toast } from "react-toastify";
-import { showToast } from "@/utils/toastutil";
+import { showToast } from "../utils/toastutil";
 
 interface TaskState {
   tasks: Task[];

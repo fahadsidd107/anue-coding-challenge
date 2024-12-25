@@ -1,5 +1,5 @@
-import useDarkModeStore from "@/hooks/useDarkModeStore";
 import React from "react";
+import useDarkModeStore from "../../hooks/useDarkModeStore";
 
 interface Props {
   label?: string;
@@ -8,7 +8,7 @@ interface Props {
 }
 
 const Button: React.FC<Props> = ({ label, onClickHandler,icon }) => {
-    const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
+    const { isDarkMode } = useDarkModeStore(); 
 
   return (
     <button

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import Input from "../Inputs/Input";
 import Button from "../components/Buttons/Button";
-import { useTaskStore } from "@/hooks/useTaskStore";
 import useDarkModeStore from "../hooks/useDarkModeStore";
 import { Plus } from 'lucide-react';
+import { useTaskStore } from "../hooks/useTaskStore";
 
 const CreateTaskForm = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const addTask = useTaskStore((state) => state.addTask);
-  const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
+  const { isDarkMode } = useDarkModeStore(); 
 
   const onClickHandler = () => {
     addTask({

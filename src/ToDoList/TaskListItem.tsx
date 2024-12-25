@@ -1,11 +1,11 @@
-import { Task } from "@/types/task";
 import React from "react";
 import CheckBox from "../components/Buttons/Checkbox";
-import { useTaskStore } from "@/hooks/useTaskStore";
-import useDarkModeStore from "@/hooks/useDarkModeStore";
 import { Trash2 } from 'lucide-react';
 import { FilePenLine } from 'lucide-react';
-import Button from "@/components/Buttons/Button";
+import { Task } from "../types/task";
+import useDarkModeStore from "../hooks/useDarkModeStore";
+import { useTaskStore } from "../hooks/useTaskStore";
+import Button from "../components/Buttons/Button";
 
 interface Props {
   task: Task;
@@ -17,7 +17,7 @@ interface Props {
 const TaskListItem: React.FC<Props> = ({ task, setTask, setIsEditModalOpen,setIsDeleteModalOpen }) => {
   const { title, description, id, isCompleted } = task;
   const completeTask = useTaskStore((state) => state.completeTask);
-   const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
+   const { isDarkMode } = useDarkModeStore(); 
   return (
     <div className={`flex w-full gap-4  ${
       isDarkMode ? " bg-gray-600  " : " bg-green-200"
@@ -30,7 +30,7 @@ const TaskListItem: React.FC<Props> = ({ task, setTask, setIsEditModalOpen,setIs
       </div>
       </div>
       <div className="flex gap-2">
-       {!isCompleted && <Button    icon={<FilePenLine size={18} onClick={()=>{
+       {!isCompleted && <Button icon={<FilePenLine size={18} onClick={()=>{
         setIsEditModalOpen(true);
         setTask(task);
        }} />} />}

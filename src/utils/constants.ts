@@ -1,4 +1,3 @@
-import exp from "constants";
 import { Earth, Jupiter, Mars, Mercury, Neptune, Saturn,Cloud1, Cloud2, Cloud3, Cloud4, Cloud5, Cloud6 } from "./images";
 
 export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://anue-coding-challenge-backend.onrender.com";

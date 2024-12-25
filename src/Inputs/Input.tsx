@@ -1,5 +1,5 @@
-import useDarkModeStore from "@/hooks/useDarkModeStore";
 import React from "react";
+import useDarkModeStore from "../hooks/useDarkModeStore";
 
 interface Props {
   label?: string;
@@ -16,7 +16,7 @@ const Input: React.FC<Props> = ({
   isRequired,
 }) => {
 
-    const { isDarkMode, toggleDarkMode } = useDarkModeStore(); 
+    const { isDarkMode } = useDarkModeStore(); 
   return (
     <div className="w-full">
       {label ?? (
