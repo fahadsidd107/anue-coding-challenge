@@ -43,6 +43,13 @@ export const useTaskStore = create<TaskState>((set) => ({
 
   addTask: async (task) => {
     set({ error: null });
+  
+    // Validation for empty title
+    if (!task.title || task.title.trim() === "") {
+      showToast("error", "Task title cannot be empty!");
+      return;
+    }
+  
     try {
       const newTask = await addTask(task);
       set((state) => ({ tasks: [...state.tasks, newTask] }));
@@ -50,9 +57,10 @@ export const useTaskStore = create<TaskState>((set) => ({
     } catch (error) {
       console.error("Failed to add task:", error);
       set({ error: "Failed to add task" });
-     showToast("error", "Failed to add task");
+      showToast("error", "Failed to add task");
     }
   },
+  
 
   editTask: async (id, updatedTask) => {
     set({ error: null });

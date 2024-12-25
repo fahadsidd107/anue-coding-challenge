@@ -3,7 +3,7 @@ import useDarkModeStore from "../../hooks/useDarkModeStore";
 
 interface Props {
   label?: string;
-  onClickHandler?: () => void;
+  onClickHandler?: () => void ;
   icon?: React.ReactNode;
 }
 
